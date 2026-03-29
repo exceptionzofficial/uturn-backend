@@ -33,7 +33,11 @@ const upload = multer({
   { name: 'profilePhoto', maxCount: 1 },
   { name: 'aadhaarFront', maxCount: 1 },
   { name: 'dlFront', maxCount: 1 },
-  { name: 'dlBack', maxCount: 1 }
+  { name: 'dlBack', maxCount: 1 },
+  { name: 'rcFront', maxCount: 1 },
+  { name: 'insuranceFront', maxCount: 1 },
+  { name: 'fcFront', maxCount: 1 },
+  { name: 'permitFront', maxCount: 1 }
 ]);
 
 // 1. Check Mobile Status
@@ -147,6 +151,10 @@ router.post("/register", upload, async (req, res) => {
         aadhaarFront: { S: files.aadhaarFront ? files.aadhaarFront[0].location : "" },
         dlFront: { S: files.dlFront ? files.dlFront[0].location : "" },
         dlBack: { S: files.dlBack ? files.dlBack[0].location : "" },
+        rcFront: { S: files.rcFront ? files.rcFront[0].location : "" },
+        insuranceFront: { S: files.insuranceFront ? files.insuranceFront[0].location : "" },
+        fcFront: { S: files.fcFront ? files.fcFront[0].location : "" },
+        permitFront: { S: files.permitFront ? files.permitFront[0].location : "" },
         createdAt: { S: new Date().toISOString() }
       }
     };
